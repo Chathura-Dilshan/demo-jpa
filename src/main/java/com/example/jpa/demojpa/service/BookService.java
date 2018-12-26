@@ -30,7 +30,7 @@ public class BookService {
     public BookDto getBook(int id) throws ValidationException {
         Book book=bookRepository.findById(id).orElse(null);
         if (book == null) {
-            //throw new ValidationException("Can not find id");
+            throw new ValidationException("Can not find id");
         }
         return bookConverter.entityToDto(book);
     }
